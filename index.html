@@ -10,10 +10,63 @@
     <script>
         function getComputerChoice(){
             let rand = 3 * Math.random();
-            if (rand <= 1) return "Rock";
-            else if (rand <= 2) return "Paper";
-            return "Scissors";
+
+            console.log(rand);
+            
+            if (rand <= 1) return "rock";
+            else if (rand <= 2) return "paper";
+            return "scissors";
         }
+
+        function playRound(playerSelection, computerSelection){ 
+            let player = playerSelection.toLowerCase();
+            let computer = computerSelection.toLowerCase();
+            let playerWin = null;
+
+            console.group(player, computer);
+            console.groupEnd();
+
+            if (player != computer) {
+                switch (player) {
+                case "rock":
+                    switch (computer) {
+                    case "paper":  playerWin = false; break;
+                    case "scissors": playerWin = true; break;
+                    default: return "ERROR: Invalid computer choice!";
+                    }
+                    break;
+
+                case "paper":
+                    switch (computer) {
+                    case "rock": playerWin = true; break;
+                    case "scissors": playerWin = false; break;
+                    default: return "ERROR: Invalid computer choice!";
+                    }
+                    break;
+
+                case "scissors":
+                    switch (computer) {
+                    case "rock": playerWin = false; break;
+                    case "paper": playerWin = true; break;
+                    default: return "ERROR: Invalid computer choice!";
+                    }
+                    break;
+                    
+                default: return "ERROR: Invalid player choice!";
+                }
+            }
+
+            switch (playerWin) {
+            case true: return `You Win! ${player} beats ${computer}`;
+            case false: return `You Lose! ${computer} beats ${player}`;
+            case null: return `Try again! ${player} ties ${computer}`; 
+            default: return "ERROR: invalid value for 'playerWin'!";
+            }
+        }
+
+        const playerSelection = "rock";
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
     </script>
 </body>
 </html>
