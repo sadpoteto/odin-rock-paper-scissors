@@ -8,23 +8,18 @@
 </head>
 <body>
     <script>
-        function getComputerChoice() {
+        function getComputerChoice () {
             let rand = 3 * Math.random();
-
-            console.log(rand);
 
             if (rand <= 1) return "rock";
             else if (rand <= 2) return "paper";
             return "scissors";
         }
 
-        function playRound(playerSelection, computerSelection) { 
+        function playRound (playerSelection, computerSelection) { 
             let player = playerSelection.toLowerCase();
             let computer = computerSelection.toLowerCase();
             let playerWin = null;
-
-            console.group(player, computer);
-            console.groupEnd();
 
             if (player != computer) {
                 switch (player) {
@@ -56,15 +51,18 @@
                 }
             }
 
+            return playerWin;
+        }
+
+        function printMsg (playerWin) {
             switch (playerWin) {
-            case true: return `You Win! ${player} beats ${computer}`;
-            case false: return `You Lose! ${computer} beats ${player}`;
-            case null: return `Try again! ${player} ties ${computer}`; 
-            default: return "ERROR: invalid value for 'playerWin'!";
+                case true: return `You Win! ${player} beats ${computer}`;
+                case false: return `You Lose! ${computer} beats ${player}`;
+                case null: return `Try again! ${player} ties ${computer}`; 
             }
         }
 
-        function game() {
+        function game () {
             let playerScore = 0;
             let computerScore = 0;
             let rounds = 0;
