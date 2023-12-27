@@ -8,17 +8,17 @@
 </head>
 <body>
     <script>
-        function getComputerChoice(){
+        function getComputerChoice() {
             let rand = 3 * Math.random();
 
             console.log(rand);
-            
+
             if (rand <= 1) return "rock";
             else if (rand <= 2) return "paper";
             return "scissors";
         }
 
-        function playRound(playerSelection, computerSelection){ 
+        function playRound(playerSelection, computerSelection) { 
             let player = playerSelection.toLowerCase();
             let computer = computerSelection.toLowerCase();
             let playerWin = null;
@@ -64,9 +64,9 @@
             }
         }
 
-        const playerSelection = "rock";
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+        function game() {
+            
+        }
     </script>
 </body>
 </html>
