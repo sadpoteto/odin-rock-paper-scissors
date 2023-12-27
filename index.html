@@ -27,7 +27,7 @@
                     switch (computer) {
                     case "paper":  playerWin = false; break;
                     case "scissors": playerWin = true; break;
-                    default: return "ERROR: Invalid computer choice!";
+                    default: console.log("ERROR: Invalid computer choice!");
                     }
                     break;
 
@@ -35,7 +35,7 @@
                     switch (computer) {
                     case "rock": playerWin = true; break;
                     case "scissors": playerWin = false; break;
-                    default: return "ERROR: Invalid computer choice!";
+                    default: console.log("ERROR: Invalid computer choice!");
                     }
                     break;
 
@@ -43,18 +43,18 @@
                     switch (computer) {
                     case "rock": playerWin = false; break;
                     case "paper": playerWin = true; break;
-                    default: return "ERROR: Invalid computer choice!";
+                    default: console.log("ERROR: Invalid computer choice!");
                     }
                     break;
                     
-                default: return "ERROR: Invalid player choice!";
+                default: console.log("ERROR: Invalid player choice!");
                 }
             }
 
             return playerWin;
         }
 
-        function printMsg (playerWin) {
+        function printMsg (playerWin, player, computer) {
             switch (playerWin) {
                 case true: return `You Win! ${player} beats ${computer}`;
                 case false: return `You Lose! ${computer} beats ${player}`;
