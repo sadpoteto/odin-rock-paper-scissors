@@ -7,14 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="rock" onclick="playRound('rock',getComputerChoice())">Rock</button>
-    <button id="paper" onclick="playRound('paper',getComputerChoice())">Paper</button>
-    <button id="scissors" onclick="playRound('scissors',getComputerChoice())">Scissors</button>
+    <div id="container" style="display:flex; flex-direction:column; justify-content: center;">
+        <div id="buttons" style="display:flex; justify-content: center;">
+            <button id="rock" onclick="playRound('rock',getComputerChoice())">Rock</button>
+            <button id="paper" onclick="playRound('paper',getComputerChoice())">Paper</button>
+            <button id="scissors" onclick="playRound('scissors',getComputerChoice())">Scissors</button>
+        </div>
     
-    <div id="info">
-        <h1 id="score">0-0</h1>
-        <h2 id="winner"></h2>
+    
+        <div id="info" style="text-align: center">
+            <h1 id="score">0-0</h1>
+            <h2 id="winner"></h2>
+        </div>
     </div>
+    
 
     <script>
         let playerWins = 0;
@@ -22,6 +28,7 @@
 
         const winsThreshold = 5;
 
+        const buttons = document.querySelectorAll("#buttons *");
         const scoreText = document.querySelector("#info > #score");
         const winnerText = document.querySelector("#info > #winner");
         
@@ -76,10 +83,15 @@
         }
 
         function updateInfo() {
-            scoreText.textContent = `${playerWins}-${computerWins}`;
+            scoreText.textContent = `${playerWins} - ${computerWins}`;
             if (playerWins >= winsThreshold) winnerText.textContent = "Player wins!";
             else if (computerWins >= winsThreshold) winnerText.textContent = "Computer wins!";
+            if (playerWins >= winsThreshold || computerWins >= winsThreshold) disableButtons();
         } 
+
+        function disableButtons() {
+            [...buttons].forEach( (element) => {element.onclick = ""});
+        }
 
         function printMsg (playerWin, player, computer) {
             switch (playerWin) {
