@@ -17,6 +17,9 @@
     </div>
 
     <script>
+        let playerWins = 0;
+        let computerWins = 0;
+        
         function getComputerChoice () {
             let rand = 3 * Math.random();
 
@@ -60,7 +63,10 @@
                 }
             }
 
-            return playerWin;
+            if (playerWin === true) playerWins++;
+            else if (playerWin === false) computerWins++;
+            // if neither is met, playerWin is its default value (null),
+            // i.e. no points need to be awarded
         }
 
         function printMsg (playerWin, player, computer) {
