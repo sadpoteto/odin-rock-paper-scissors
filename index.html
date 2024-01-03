@@ -10,6 +10,12 @@
     <button id="rock" onclick="playRound('rock',getComputerChoice())">Rock</button>
     <button id="paper" onclick="playRound('paper',getComputerChoice())">Paper</button>
     <button id="scissors" onclick="playRound('scissors',getComputerChoice())">Scissors</button>
+    
+    <div id="info">
+        <h1 id="score">0-0</h1>
+        <h2 id="winner"></h2>
+    </div>
+
     <script>
         function getComputerChoice () {
             let rand = 3 * Math.random();
