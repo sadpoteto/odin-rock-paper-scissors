@@ -19,6 +19,11 @@
     <script>
         let playerWins = 0;
         let computerWins = 0;
+
+        const winsThreshold = 5;
+
+        const scoreText = document.querySelector("#info > #score");
+        const winnerText = document.querySelector("#info > #winner");
         
         function getComputerChoice () {
             let rand = 3 * Math.random();
@@ -67,7 +72,14 @@
             else if (playerWin === false) computerWins++;
             // if neither is met, playerWin is its default value (null),
             // i.e. no points need to be awarded
+            updateInfo();
         }
+
+        function updateInfo() {
+            scoreText.textContent = `${playerWins}-${computerWins}`;
+            if (playerWins >= winsThreshold) winnerText.textContent = "Player wins!";
+            else if (computerWins >= winsThreshold) winnerText.textContent = "Computer wins!";
+        } 
 
         function printMsg (playerWin, player, computer) {
             switch (playerWin) {
