@@ -67,45 +67,6 @@
             }
         }
 
-        function game () {
-            let playerScore = 0;
-            let computerScore = 0;
-            let roundsPlayed = 0;
-
-            while (roundsPlayed < 5) {
-                let playerChoice = prompt("Enter your move (rock/paper/scissors): ", "");
-                let computerChoice = getComputerChoice();
-
-                let playerWin = playRound(playerChoice, computerChoice);
-
-                printMsg(playerWin, playerChoice, computerChoice);
-
-                switch (playerWin) {
-                    case true: 
-                        playerScore++;
-                        roundsPlayed++;
-                        break;
-
-                    case false:
-                        computerScore++;
-                        roundsPlayed++;
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            if (playerScore > computerScore) {
-                console.log(`You win the game! (${playerScore}-${computerScore})`);
-            }
-            else if(playerScore < computerScore) {
-                console.log(`You lose the game! (${playerScore}-${computerScore})`);
-            }
-            else {
-                console.log(`Something went wrong! (${playerScore}-${computerScore}`);
-            }
-        }
-
         //POTENTIAL TODO: Implement full R / P / S / Lizard / Spock :)
     </script>
 </body>
